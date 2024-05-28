@@ -1,0 +1,969 @@
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chef-Contact</title>
+    <link rel="stylesheet" href="./assets/jquery-ui-1.12.0/jquery-ui.min.css" />
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="./assets/css/font-awesome.css" />
+    <link rel="stylesheet" href="./assets/css/bootstrap-social.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/js/bootstrap-material-datetimepicker-gh-pages/css/bootstrap-material-datetimepicker.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="./assets/css/chat.css" />
+    <link rel="stylesheet" href="./assets/css/homemeal.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/star-rating.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <style>
+      .btn-outline{
+        border-radius: 20px;
+      }
+
+      .container{
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+
+  <body id="homepage">
+    <div id="loading">
+      <img
+        id="loading-image"
+        src="./assets/images/loading.gif "
+        alt="Loading..."
+        style="margin-left: -60px"
+      />
+    </div>
+    <div class="container">
+      <nav class="navbar navbar-default navbar-fixed-top hm-navbar">
+        <div class="container-fluid">
+          <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+            <a
+              href="https://www.homemeal.com/fr/"
+              class="navbar-brand hidden-xs hidden-sm"
+              style="margin-top: 6px"
+            >
+              <img class="img-responsive" src="/assets/images/home/logo-homemeal.png" />
+            </a>
+            <a href="https://www.homemeal.com/fr/" class="pull-left visible-xs visible-sm">
+              <img class="img-responsive sigle-hm" src="/assets/images/home/sigle-homemeal.png" />
+            </a>
+
+            <a
+              id="pictoSearch"
+              href="https://www.homemeal.com/fr/search/"
+              class="btn btn-outline4 btn-lg menu-search padd-20"
+              ><i class="fa fa-search fa-lg" aria-hidden="true"></i
+            ></a>
+
+            <a
+              class="navbar-toggle xs-btn"
+              data-toggle="collapse"
+              data-target=".navbar-collapse"
+              href="#"
+              ><i class="fa fa-bars fa-2x" aria-hidden="true"></i
+            ></a>
+          </div>
+
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <div class="dropdown">
+                  <a href="https://www.homemeal.com/fr/becomeahost">
+                    <button type="button" class="btn btn-outline">Devenir un hote</button>
+                  </a>
+                </div>
+              </li>
+
+              <li class="divider-vertical" style="height: 60px">
+                <div>
+                  <button
+                    class="btn toggle-left btn-host"
+                    type="button"
+                    id="btn-inscription"
+                    aria-haspopup="true"
+                    aria-expanded="true"
+                    data-toggle="modal"
+                    data-target="#modal-inscription"
+                  >
+                    Inscription
+                  </button>
+                </div>
+              </li>
+              <li class="divider-vertical" style="height: 60px">
+                <div>
+                  <a href="https://www.homemeal.com/fr/login">
+                    <button
+                      class="btn toggle-left btn-host"
+                      type="button"
+                      id="btn-inscription"
+                      aria-haspopup="true"
+                      aria-expanded="true"
+                    >
+                      Connexion
+                    </button>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div
+        class="modal fade"
+        id="modal-inscription"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myModalLabel"
+        aria-hidden="true"
+        style="z-index: 200000"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body top-10">
+              <a href="https://www.homemeal.com/fr/register/">
+                <button
+                  class="btn btn-danger btn-lg bot-20"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i
+                    class="fa fa-envelope-o pull-left fa-lg"
+                    style="margin-top: 3px"
+                    aria-hidden="true"
+                  ></i>
+                  Inscription E-mail
+                </button>
+              </a>
+              <a href="../connect/facebook.html">
+                <button
+                  class="btn btn-primary btn-lg"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
+                  Inscription Facebook
+                </button>
+              </a>
+              <div class="xs-text">
+                <p class="modal-signin-text search-bar-label">
+                  En créant un compte, j'accepte les
+                  <a href="https://www.homemeal.com/fr/terms">Conditions générales</a> de Homemeal,
+                  et <a href="https://www.homemeal.com/fr/privacy">Politique de confidentialité</a>
+                </p>
+              </div>
+              <div class="separation-line"></div>
+            </div>
+            <div class="modal-footer bot-10">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7">
+                <p class="xs-text" style="padding-top: 3px">Déjà membre Homemeal?</p>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                <a href="https://www.homemeal.com/fr/login">
+                  <button type="button" class="btn btn-outline2 btn-lg pull-right">
+                    Connexion
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="modal-connexion"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <a href="../connect/facebook.html">
+                <button
+                  class="btn btn-primary btn-lg"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
+                  Connexion avec Facebook
+                </button>
+              </a>
+
+              <p class="hm-align-center search-bar-label">- ou -</p>
+
+              <a href="https://www.homemeal.com/fr/login">
+                <button
+                  class="btn btn-danger btn-lg"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i class="fa fa-envelope-o pull-left fa-lg" aria-hidden="true"></i>
+                  Connexion avec e-mail
+                </button>
+              </a>
+
+              <div class="separation-line"></div>
+            </div>
+
+            <div class="modal-footer">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7 xs-text">
+                <p class="sm-top"><b> Vous n&#039;avez pas de compte?</b></p>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                <button
+                  class="btn btn-outline2 btn-lg pull-right"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                  data-toggle="modal"
+                  data-target="#modal-inscription"
+                >
+                  Inscription
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="container-fluid full-input"
+      style="position: absolute; top: 40px; z-index: 200; text-align: center"
+    >
+      <div class="container"></div>
+    </div>
+
+    <div class="container-fluid bg-homehead2"></div>
+
+    <div class="jumbotron home-video-jumbotron top-40 visible-sm visible-md">
+      <h2 style="font-size: 40px" class="txt-shadow">UNE NOUVELLE FAÇON DE RECEVOIR</h2>
+      <p class="txt-shadow">
+        Gagnez de l&#039;argent en recevant a votre table des invités du monde entier ou votre
+        logement.
+      </p>
+      <p>
+        <a href="https://www.homemeal.com/fr/home_video"
+          ><i class="fa fa-play-circle fa-home-play fa-4x" aria-hidden="true"></i
+        ></a>
+      </p>
+    </div>
+    <div class="jumbotron home-video-jumbotron top-40 visible-lg">
+      <h2 style="font-size: 60px" class="txt-shadow">UNE NOUVELLE FAÇON DE RECEVOIR</h2>
+      <p style="font-size: 26px" class="txt-shadow">
+        Gagnez de l&#039;argent en recevant a votre table des invités du monde entier ou votre
+        logement.
+      </p>
+      <p style="position: absolute; left: 50%; right: 50%; top: 200px; margin-left: -40px">
+        <a href="https://www.homemeal.com/fr/home_video"
+          ><i class="fa fa-play-circle fa-home-play fa-4x" aria-hidden="true"></i
+        ></a>
+      </p>
+    </div>
+    <div class="jumbotron home-video-jumbotron visible-xs">
+      <h2 class="txt-shadow">UNE NOUVELLE FAÇON DE RECEVOIR</h2>
+      <p class="txt-shadow">
+        Gagnez de l&#039;argent en recevant a votre table des invités du monde entier ou votre
+        logement.
+      </p>
+      <p>
+        <a href="https://www.homemeal.com/fr/home_video"
+          ><i class="fa fa-play-circle fa-home-play fa-3x" aria-hidden="true"></i
+        ></a>
+      </p>
+    </div>
+
+    <div class="home-search">
+      <div class="container">
+        <form class="form-inline search-result-text" action="/fr/bis2" method="post">
+          <div class="full-input">
+            <div
+              class="form-group has-feedback has-feedback-left col-xs-112 col-sm-6 col-md-7 col-lg-5 shadow-box"
+            >
+              <input
+                name="lieu"
+                type="text"
+                id="location"
+                class="form-control has-feedback-left xs-homeinput"
+                placeholder="Où"
+              />
+              <i
+                class="glyphicon glyphicon-search form-control-feedback glyphicon-lg xs-homegly"
+              ></i>
+            </div>
+
+            <div
+              class="form-group has-feedback has-feedback-left col-xs-12 col-sm-4 col-md-4 col-lg-3"
+            >
+              <select id="type" class="form-control has-feedback-left xs-homeinput" name="quoi">
+                <option value="meal">Expérience culinaire</option>
+                <option value="home">Un logement</option>
+              </select>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4 shadow-box">
+              <button
+                type="submit"
+                class="btn btn-danger btn-lg btn-group-justified h-50 hidden-xs"
+              >
+                Rechercher
+              </button>
+              <button
+                type="submit"
+                class="btn btn-danger btn-lg btn-group-justified h-50 visible-xs"
+              >
+                <i class="fa fa-cutlery" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="container">
+        <div class="border-devenir-hote">
+          <div class="col-xs-12 col-sm-6 col-md-7 col-lg-8">
+            <div id="myCarousel1" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel1" data-slide-to="1"></li>
+              </ol>
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <div class="home-slide1-img2"></div>
+                  <div
+                    class="carousel-caption profil-content"
+                    style="background-color: rgba(0, 0, 0, 0.4); padding: 20px 40px 40px 40px"
+                  >
+                    <h3>ET SI C'ETAIT VOUS?</h3>
+                    <p>
+                      Devenez Chef Homemeal, et faîtes découvrir vos recettes de cuisine à des
+                      invités du monde entier
+                    </p>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="home-slide1-img1"></div>
+                  <div class="carousel-caption visible-xs">
+                    <h3><b>Cuisinez de chez vous et faîtes de nouvelles rencontres</b></h3>
+                    <br />
+                    <p>
+                      Vous pouvez désormais cuisiner ou organiser un repas chez vous tout en gagnant
+                      de l'argent !
+                    </p>
+                    <br />
+                    <a href="https://www.homemeal.com/fr/becomeahost"
+                      ><button type="submit" class="btn btn-info btn-lg btn-group-justified">
+                        Devenir hôte
+                      </button></a
+                    >
+                  </div>
+                  <div
+                    class="carousel-caption hidden-xs profil-content"
+                    style="background-color: rgba(0, 0, 0, 0.4); padding: 20px 40px 40px 40px"
+                  >
+                    <h3><b>ALLEZ DÎNER CHEZ VOS VOISINS</b></h3>
+                    <br />
+                    <p>
+                      Grâce à Homemeal, vous pouvez désormais expérimenter de nouvelles rencontres.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs12 col-sm-6 col-md-5 col-lg-4 col-bg-white hidden-xs">
+            <h3><b>Faites de nouvelles recontres à votre table !</b></h3>
+            <br />
+            <p>
+              Grâce à Homemeal, vous pouvez désormais cuisiner et organiser un repas chez vous en
+              compagnie d'invités du monde entier.
+            </p>
+            <br />
+            <a href="https://www.homemeal.com/fr/becomeahost">
+              <button type="submit" class="btn btn-default btn-lg btn-group-justified top-40">
+                <b>Devenir hôte</b>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-20">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content">
+          <h2><b> Trouvez le repas idéal</b></h2>
+          <p>
+            <a
+              data-toggle="modal"
+              data-target="#modal-inscription"
+              style="text-decoration: none; color: #141414"
+            >
+              Homemeal vous aide a trouver le repas idéal, car il y a une toujours une occasion de
+              faire de belles rencontres autour d'une table.</a
+            >
+          </p>
+        </div>
+
+        <div id="hm-carouselhome" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner hm-carousel2" role="listbox">
+            <div class="item active">
+              <div
+                class="col-xs-12 col-sm-12 col-md-12 col-lg-4 home-box-border-space bg-brunch bg-dark-hover"
+              >
+                <a href="https://www.homemeal.com/fr/search/"
+                  ><h2 class="txt-xs-shadow">Brunch</h2></a
+                >
+              </div>
+              <div
+                class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-dejeuner bg-dark-hover"
+              >
+                <a href="https://www.homemeal.com/fr/search/"
+                  ><h2 class="txt-xs-shadow">Déjeuner</h2></a
+                >
+              </div>
+              <div
+                class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-diner bg-dark-hover"
+              >
+                <a href="https://www.homemeal.com/fr/search/"
+                  ><h2 class="txt-xs-shadow">Dîner</h2></a
+                >
+              </div>
+            </div>
+            <div class="item">
+              <div
+                class="col-xs-12 col-sm-12 col-md-12 col-lg-4 home-box-border-space bg-aperitif bg-dark-hover"
+              >
+                <a href="https://www.homemeal.com/fr/search/"
+                  ><h2 class="txt-xs-shadow">Apéritif</h2></a
+                >
+              </div>
+              <div
+                class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-picnic bg-dark-hover"
+              >
+                <a href="https://www.homemeal.com/fr/search/"
+                  ><h2 class="txt-xs-shadow">Pique-nique</h2></a
+                >
+              </div>
+              <div
+                class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-break bg-dark-hover"
+              >
+                <a href="https://www.homemeal.com/fr/search/"
+                  ><h2 class="txt-xs-shadow">Goûter</h2></a
+                >
+              </div>
+            </div>
+
+            <a
+              class="left carousel-control"
+              href="#hm-carouselhome"
+              role="button"
+              data-slide="prev"
+            >
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              class="right carousel-control"
+              href="#hm-carouselhome"
+              role="button"
+              data-slide="next"
+            >
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 home-box-border-space">
+        <div
+          class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-estimation profil-content bot-20 upload-box2"
+        >
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content">
+            <h2><b>Comment ça marche?</b></h2>
+            <p>
+              <a
+                data-toggle="modal"
+                data-target="#modal-inscription"
+                style="text-decoration: none; color: #141414"
+              >
+                <b>Inscrivez-vous gratuitement</b></a
+              ><a> et rejoignez dès aujourd'hui la communauté Homemeal !</a>
+            </p>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 blue-i">
+            <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 profil-content hm-align-center">
+              <h3><i class="fa fa-search" aria-hidden="true"></i> Trouvez une table</h3>
+              <p>
+                Il vous suffit de saisir une ville et découvrir les annonces de repas disponibles
+                dans la zone.
+              </p>
+            </div>
+            <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 profil-content hm-align-center">
+              <h3><i class="fa fa-calendar-plus-o" aria-hidden="true"></i> Réservez chez l'hôte</h3>
+              <p>
+                Faîtes votre choix et cliquez sur le bouton «Demande de réservation». Votre hôte en
+                sera averti et vous pourrez directement échanger avec ce dernier.
+              </p>
+            </div>
+            <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 profil-content hm-align-center">
+              <h3><i class="fa fa-cutlery" aria-hidden="true"></i> Allez au rendez-vous</h3>
+              <p>
+                Il ne vous reste maintenant plus qu’à profiter ! Les hôtes homemeal vous attendent !
+                Découvrez leur culture et savourez un moment authentique.
+              </p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"></div>
+              <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 profil-content">
+                <a href="https://www.homemeal.com/fr/howitworks" title="Comment ça marche?"
+                  ><button
+                    type="submit"
+                    class="btn btn-danger btn-lg home-btn full-input"
+                    style="margin-top: 0"
+                  >
+                    <b>En savoir plus</b>
+                  </button></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 home-box-border-space">
+        <div
+          class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg-estimation profil-content bot-20 upload-box2"
+        >
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center profil-content">
+            <h2><b>Téléchargez notre application</b></h2>
+            <p>
+              Téléchargez notre application mobile Homemeal sur iPhone, Android et Windows Phone
+            </p>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 blue-i">
+            <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 invert profil-content hm-align-center">
+              <a href="https://play.google.com/store/apps/details?id=fr.android.hm"
+                ><img
+                  src="/assets/images/google-play.jpg"
+                  class="img-responsive img-rounded"
+                  alt="Application Google play"
+              /></a>
+            </div>
+            <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 invert profil-content hm-align-center">
+              <a href="https://itunes.apple.com/fr/app/homemeal-mangez-rencontrez/id1315600267?mt=8"
+                ><img
+                  src="/assets/images/app-store.jpg"
+                  class="img-responsive img-rounded"
+                  alt="Application App store"
+              /></a>
+            </div>
+            <div class="col-lg-12 col-sm-4 col-md-4 col-lg-4 invert profil-content hm-align-center">
+              <a href="https://www.microsoft.com/fr-fr/store/p/homemeal/9n04cclpf32s"
+                ><img
+                  src="/assets/images/win-phone.jpg"
+                  class="img-responsive img-rounded"
+                  alt="Application Windows phone"
+              /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="hm-title bot-10">
+          <h2><b>La sélection Homemeal</b></h2>
+        </div>
+      </div>
+      <div>
+        <div
+          class="col-xs-12 col-sm-6 col-md-6 col-lg-8 home-box-border-space bg-montana bg-dark-hover"
+        >
+          <a href="https://www.homemeal.com/fr/search/"
+            ><h2 class="txt-xs-shadow">
+              Crans-Montana, Suisse<br /><i class="md-txt">Un goût de paradis</i>
+            </h2></a
+          >
+        </div>
+        <div
+          class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-user-leonard bg-dark-hover2"
+        >
+          <a href="https://www.homemeal.com/fr/search/49"
+            ><p class="txt-xs-shadow">
+              <img
+                class="img-circle border-box"
+                src="/assets/images/home/home-profil-leonard.jpg"
+              /><br />
+              Chez léonard <br /><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> Paris
+            </p></a
+          >
+        </div>
+        <div
+          class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-user-ruben bg-dark-hover2"
+        >
+          <a href="https://www.homemeal.com/fr/search/74"
+            ><p class="txt-xs-shadow">
+              <img
+                class="img-circle border-box"
+                src="/assets/images/home/home-profil-ruben.jpg"
+              /><br />
+              Chez Ruben <br /><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> Paris
+            </p></a
+          >
+        </div>
+      </div>
+      <div>
+        <div
+          class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-equateur bg-dark-hover"
+        >
+          <a href="https://www.homemeal.com/fr/search/"><h2 class="txt-xs-shadow">Équateur</h2></a>
+        </div>
+        <div
+          class="col-xs-12 col-sm-6 col-md-12 col-lg-4 home-box-border-space bg-varsovie bg-dark-hover"
+        >
+          <a href="https://www.homemeal.com/fr/search/"><h2 class="txt-xs-shadow">Varsovie</h2></a>
+        </div>
+      </div>
+      <div>
+        <div
+          class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-francfort bg-dark-hover"
+        >
+          <a href="https://www.homemeal.com/fr/search/"><h2 class="txt-xs-shadow">Francfort</h2></a>
+        </div>
+        <div
+          class="col-xs-12 col-sm-6 col-md-6 col-lg-8 home-box-border-space bg-maroc bg-dark-hover"
+        >
+          <a href="https://www.homemeal.com/fr/search/"
+            ><h2 class="txt-xs-shadow">Splendeurs du Maroc</h2></a
+          >
+        </div>
+      </div>
+      <div>
+        <div
+          class="col-xs-12 col-sm-6 col-md-12 col-lg-4 home-box-border-space bg-barcelone bg-dark-hover"
+        >
+          <a href="https://www.homemeal.com/fr/search/"><h2 class="txt-xs-shadow">Barcelone</h2></a>
+        </div>
+        <div
+          class="col-xs-12 col-sm-6 col-md-6 col-lg-4 home-box-border-space bg-newyork bg-dark-hover"
+        >
+          <a href="https://www.homemeal.com/fr/search/"><h2 class="txt-xs-shadow">New York</h2></a>
+        </div>
+        <div
+          class="col-xs-12 col-sm-12 col-md-6 col-lg-4 home-box-border-space bg-bruxelles bg-dark-hover"
+        >
+          <a href="https://www.homemeal.com/fr/search/"><h2 class="txt-xs-shadow">Bruxelles</h2></a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"></div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 profil-content">
+          <a
+            href="https://www.homemeal.com/fr/search/"
+            class="btn btn-default btn-lg home-btn full-input"
+            ><b>Découvrir tous les hôtes</b></a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div id="hm-carousel2" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#hm-carousel2" data-slide-to="0" class="active"></li>
+          <li data-target="#hm-carousel2" data-slide-to="1"></li>
+        </ol>
+
+        <div class="carousel-inner hm-carousel2" role="listbox">
+          <div class="item active">
+            <div class="home-slide-img1">
+              <div class="carousel-caption">
+                <div class="jumbotron home-slide-jumbotron">
+                  <h1>VOUS AIMER CUISINER & ACCUEILLIR?</h1>
+                  <p>Devenez gratuitement hôte Homemeal et montrez vos talents de chef !</p>
+                  <a href="https://www.homemeal.com/fr/becomeahost"
+                    ><button type="submit" class="btn btn-warning btn-lg">Devenir hôte</button></a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="home-slide-img3">
+              <div class="carousel-caption">
+                <div class="jumbotron home-slide-jumbotron">
+                  <h1>FAITES DES RENCONTRES</h1>
+                  <p>Grâce à Homemeal, vivez des moments de convivialité uniques.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a class="left carousel-control" href="#hm-carousel2" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#hm-carousel2" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="hm-title top-20 bot-20">
+          <h2><b>Les avantages Homemeal</b></h2>
+        </div>
+      </div>
+
+      <div class="container-fluid bot-40">
+        <div class="col-lg-1 visible-lg"></div>
+        <div class="container-fluid col-lg-10">
+          <div
+            class="col-xs-12 col-sm-6 col-md-3 col-lg-3 home-service-box bg-services-reservation"
+          >
+            <a href="https://www.homemeal.com/fr/howitworks"
+              ><button type="submit" class="btn btn-warning btn-lg">Service optimisé</button></a
+            >
+            <div class="service-texte-box">
+              <h3>Simple & efficace</h3>
+              <p>Réservez en quelques clics une table d'hôte spécialement à votre goût !</p>
+              <br /><br /><a href="https://www.homemeal.com/fr/howitworks"
+                ><span class="badge">En savoir plus</span></a
+              >
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 home-service-box bg-services-domicile">
+            <a href="https://www.homemeal.com/fr/hospitality"
+              ><button type="submit" class="btn btn-success btn-lg">Assurance de qualité</button></a
+            >
+            <div class="service-texte-box">
+              <h3>Gage de fiabilité</h3>
+              <p>Les recettes et ingrédients sont minutieusement choisis par nos Hôtes.</p>
+              <br /><br /><a href="https://www.homemeal.com/fr/hospitality"
+                ><span class="badge">En savoir plus</span></a
+              >
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 home-service-box bg-services-evenement">
+            <a href="https://www.homemeal.com/fr/hospitality"
+              ><button type="submit" class="btn btn-danger btn-lg">Saveurs maison</button></a
+            >
+            <div class="service-texte-box">
+              <h3>Comme chez soi</h3>
+              <p>Retrouvez autour d'une table d'hôte les saveurs d'un menu fait maison.</p>
+              <br /><br /><a href="https://www.homemeal.com/fr/hospitality"
+                ><span class="badge">En savoir plus</span></a
+              >
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 home-service-box bg-services-commande">
+            <a href="https://www.homemeal.com/fr/hospitality"
+              ><button type="submit" class="btn btn-info btn-lg">Authenticité</button></a
+            >
+            <div class="service-texte-box">
+              <h3>Hospitalité garantie</h3>
+              <p>
+                Les Hôtes vous attendent pour vivre un moment unique autour d'un repas mémorable
+                !<br /><br /><br />
+              </p>
+              <a href="https://www.homemeal.com/fr/hospitality"
+                ><span class="badge">En savoir plus</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        function initialize() {
+          // Create the search box and link it to the UI element.
+          var input = document.getElementById('location');
+          var searchBox = new google.maps.places.SearchBox(input);
+
+          // [START region_getplaces]
+          // Listen for the event fired when the user selects a prediction and retrieve
+          // more details for that place.
+          //searchBox.addListener('places_changed', function() {
+          //  console.log("ok")
+          //});
+        }
+      </script>
+
+      <div class="container-fluid hmv2-footer">
+        <div class="container p0">
+          <div class="col-xs-12 col-sm-12 col-md-12 home-block t40xs">
+            <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+              <p><b>Chef-Contact</b></p>
+              <ul class="list-unstyled">
+                <li><a href="https://www.homemeal.com/fr/aboutus" title="À propos">À propos</a></li>
+                <li><a href="https://www.homemeal.com/fr/terms" title="C.G.U">C.G.U</a></li>
+                <li>
+                  <a href="https://www.homemeal.com/fr/privacy" title="Confidentialité"
+                    >Confidentialité</a
+                  >
+                </li>
+                <li><a href="https://www.homemeal.com/fr/rules">Jeux concours</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+              <p><b>Découvrir</b></p>
+              <ul class="list-unstyled">
+                <li>
+                  <a href="https://www.homemeal.com/fr/confiance" title="Confiance et sécurité"
+                    >Confiance et sécurité</a
+                  >
+                </li>
+                <li><a href="https://www.homemeal.com/fr/press" title="Presse">Presse</a></li>
+                <li><a href="https://www.homemeal.com/fr/faq" title="F.A.Q">F.A.Q</a></li>
+                <li>
+                  <a href="https://www.homemeal.com/fr/contact_us" title="Contactez-nous"
+                    >Contactez-nous</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+              <p><b>Accueillir</b></p>
+              <ul class="list-unstyled">
+                <li>
+                  <a href="https://www.homemeal.com/fr/howitworks" title="Comment ça marche?"
+                    >Comment ça marche?</a
+                  >
+                </li>
+                <li><a href="https://www.homemeal.com/fr/becomeahost">Devenir un hote</a></li>
+                <li><a href="https://www.homemeal.com/fr/hospitality">Hospitalité</a></li>
+                <li>
+                  <a href="https://www.homemeal.com/fr/meal_restriction">Régime particulier</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+              <p><b>Rejoignez-nous</b></p>
+              <ul class="list-inline">
+                <li>
+                  <a href="https://www.facebook.com/HomeMeal-153960538296278/" target="_blank"
+                    ><i class="fa fa-facebook fa-lg" aria-hidden="true"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/HomeMealCompany" target="_blank"
+                    ><i class="fa fa-twitter fa-lg" aria-hidden="true"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://in.pinterest.com/homemeal/" target="_blank"
+                    ><i class="fa fa-pinterest-p fa-lg" aria-hidden="true"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/homemeal_official/" target="_blank"
+                    ><i class="fa fa-instagram fa-lg" aria-hidden="true"></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.youtube.com/channel/UCOc1S6b_QlHV9FA4T1Vj63A/"
+                    target="_blank"
+                    ><i class="fa fa-youtube-play fa-lg" aria-hidden="true"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 home-block top-border pt20 b60">
+            <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 p0">
+              <p class="t5">
+                <img src="/assets/imgs/sigle-hm.png" class="footer-ico" alt="" />© homemeal.com
+              </p>
+            </div>
+
+            <div class="col-xs-4 col-sm-6 col-md-6 col-lg-6 dropup p0">
+              <button
+                class="btn btn-default dropdown-toggle pull-right"
+                type="button"
+                id="lang_list"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="true"
+              >
+                Choississez votre language
+                <span class="caret"></span>
+              </button>
+
+              <ul class="dropdown-menu dropdown-footer pull-right" aria-labelledby="dropdownMenu1">
+                <li aria-checked="false" role="menuitem">
+                  <a href="./en/index.html">English</a>
+                </li>
+                <li aria-checked="true" class="active" role="menuitem">
+                  <a href="index.html">Français</a>
+                </li>
+                <li aria-checked="false" role="menuitem">
+                  <a href="./es/index.html">Español</a>
+                </li>
+                <li aria-checked="false" role="menuitem">
+                  <a href="./ar/index.html">العربية</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="./assets/js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="./assets/jquery-ui-1.12.0/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="./assets/jquery-ui-1.12.0/i18n/datepicker-fr.js"></script>
+    <script type="text/javascript" src="./assets/js/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="./assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./assets/js/highlight.pack.js"></script>
+    <script type="text/javascript" src="./assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="./assets/js/jquery.sticky-kit.min.js"></script>
+    <script type="text/javascript" src="./assets/js/material.min.js"></script>
+    <script
+      type="text/javascript"
+      src="./assets/js/bootstrap-material-datetimepicker-gh-pages/js/bootstrap-material-datetimepicker.js "
+    ></script>
+    <script src="./bundles/fosjsrouting/js/router.js"></script>
+    <script type="text/javascript" src="./js/routing@callback=fos.Router.setData"></script>
+    <script type="text/javascript" src="./assets/js/homemeal.js"></script>
+    <script type="text/javascript" src="./assets/js/star-rating.js"></script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQ3gW0vTR08BDtM1n0t0jRKuIaglCRwDw&libraries=places&callback=initialize"
+    ></script>
+  </body>
+</html>

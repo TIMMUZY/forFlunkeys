@@ -1,0 +1,598 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chef-Contact</title>
+
+    <link rel="stylesheet" href="/assets/jquery-ui-1.12.0/jquery-ui.min.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="/assets/css/font-awesome.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap-social.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/js/bootstrap-material-datetimepicker-gh-pages/css/bootstrap-material-datetimepicker.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="/assets/css/chat.css" />
+    <link rel="stylesheet" href="/assets/css/homemeal.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="/assets/css/star-rating.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+
+  <body id="homepage">
+    <div id="loading">
+      <img
+        id="loading-image"
+        src="/assets/images/loading.gif "
+        alt="Loading..."
+        style="margin-left: -60px"
+      />
+    </div>
+
+    <div class="container">
+      <nav class="navbar navbar-default navbar-fixed-top hm-navbar">
+        <div class="container-fluid">
+          <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+            <a
+              href="./index.html"
+              class="navbar-brand hidden-xs hidden-sm"
+              style="margin-top: 6px"
+            >
+              <img class="img-responsive" src="/assets/images/home/logo-homemeal.png" />
+            </a>
+            <a href="./index.html" class="pull-left visible-xs visible-sm">
+              <img class="img-responsive sigle-hm" src="/assets/images/home/sigle-homemeal.png" />
+            </a>
+
+            <a
+              id="pictoSearch"
+              href="./search/index.html"
+              class="btn btn-outline4 btn-lg menu-search padd-20"
+              ><i class="fa fa-search fa-lg" aria-hidden="true"></i
+            ></a>
+
+            <a
+              class="navbar-toggle xs-btn"
+              data-toggle="collapse"
+              data-target=".navbar-collapse"
+              href="#"
+              ><i class="fa fa-bars fa-2x" aria-hidden="true"></i
+            ></a>
+          </div>
+
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <div class="dropdown">
+                  <a href="./becomeahost.html">
+                    <button type="button" class="btn btn-outline">Become a host</button>
+                  </a>
+                </div>
+              </li>
+
+              <li class="divider-vertical" style="height: 60px">
+                <div>
+                  <button
+                    class="btn toggle-left btn-host"
+                    type="button"
+                    id="btn-inscription"
+                    aria-haspopup="true"
+                    aria-expanded="true"
+                    data-toggle="modal"
+                    data-target="#modal-inscription"
+                  >
+                    Sign-in
+                  </button>
+                </div>
+              </li>
+              <li class="divider-vertical" style="height: 60px">
+                <div>
+                  <a href="./login.html">
+                    <button
+                      class="btn toggle-left btn-host"
+                      type="button"
+                      id="btn-inscription"
+                      aria-haspopup="true"
+                      aria-expanded="true"
+                    >
+                      Connect
+                    </button>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div
+        class="modal fade"
+        id="modal-inscription"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myModalLabel"
+        aria-hidden="true"
+        style="z-index: 200000"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body top-10">
+              <a href="./register/index.html">
+                <button
+                  class="btn btn-danger btn-lg bot-20"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i
+                    class="fa fa-envelope-o pull-left fa-lg"
+                    style="margin-top: 3px"
+                    aria-hidden="true"
+                  ></i>
+                  Sign-in with email
+                </button>
+              </a>
+              <a href="../connect/facebook.html">
+                <button
+                  class="btn btn-primary btn-lg"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
+                  Sign-in with Facebook
+                </button>
+              </a>
+              <div class="xs-text">
+                <p class="modal-signin-text search-bar-label">
+                  By creating an account, I agree upon the
+                  <a href="./term.html">General terms of use</a> of Homemeal
+                   and <a href="./privacy.html">Confidentiality</a>
+                </p>
+              </div>
+              <div class="separation-line"></div>
+            </div>
+            <div class="modal-footer bot-10">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7">
+                <p class="xs-text" style="padding-top: 3px">Already a member?</p>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                <a href="./login.html">
+                  <button type="button" class="btn btn-outline2 btn-lg pull-right">Connect</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="modal-connexion"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <a href="../connect/facebook.html">
+                <button
+                  class="btn btn-primary btn-lg"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i class="fa fa-facebook pull-left fa-lg" aria-hidden="true"></i>
+                  Connect with Facebook
+                </button>
+              </a>
+
+              <p class="hm-align-center search-bar-label">- ou -</p>
+
+              <a href="./login.html">
+                <button
+                  class="btn btn-danger btn-lg"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <i class="fa fa-envelope-o pull-left fa-lg" aria-hidden="true"></i>
+                  Connect with your e-mail
+                </button>
+              </a>
+
+              <div class="separation-line"></div>
+            </div>
+
+            <div class="modal-footer">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7 xs-text">
+                <p class="sm-top"><b> No account yet?</b></p>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                <button
+                  class="btn btn-outline2 btn-lg pull-right"
+                  type="button"
+                  id="btn-inscription"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                  data-toggle="modal"
+                  data-target="#modal-inscription"
+                >
+                  Sign-in
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="container-fluid full-input"
+      style="position: absolute; top: 40px; z-index: 200; text-align: center"
+    >
+      <div class="container"></div>
+    </div>
+
+    <div class="contaibner-fluid bg-tips bg-100">
+      <div class="container-fluid bg-faq-guest faq-bgfilter">
+        <div
+          class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hm-align-center color-white faq-bgfilter"
+        >
+          <h1 style="margin-top: 175px"><b>faq.102</b></h1>
+          <div class="container profil-content">
+            <p>Find below any question over the reservation system</p>
+          </div>
+        </div>
+      </div>
+      <div class="container profil-content">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 top-40 profil-content">
+          <ul class="list-unstyled txt-bold">
+            <li><a href="./faq.html">Most famous topics</a></li>
+            <li>
+              <a href="./faq_premiers_pas.html">First steps with Homemeal</a>
+            </li>
+            <li>
+              <a href="./faq_signin_account.html">Sign in &amp; Profile</a>
+            </li>
+            <li>
+              <a href="./faq_account_manage.html">Manage my host account</a>
+            </li>
+            <li>
+              <a href="./faq_account_activity.html"
+                >Manage my hosting activity</a
+              >
+            </li>
+            <li>
+              <a href="./faq_for_guests.html" class="active-color"
+                >As a guest</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 bg-estimation top-40 bot-80 box-border">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profil-content faq-links">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-20">
+              <i class="fa fa-file-text-o fa-lg" aria-hidden="true"></i>&nbsp;
+              <a data-toggle="collapse" data-target="#faq-article1">
+                How can I know if a host is a good cook?
+              </a>
+            </div>
+            <div
+              id="faq-article1"
+              class="col-xs-12 col-sm-12 col-md-12 col-lg-12 collapse bg-estimation profil-content"
+            >
+              <p>
+                There are many ways to evaluate the quality of a host. First of all, you are invited
+                to have a look over the pictures that have been posted by the host on our
+                website.<br /><br />
+                We also recommend that you read the comments left by other Homemeal guests on our
+                website.<br /><br />
+                Furthermore, you can also communicate with the host on our website to have more
+                information.
+              </p>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-20">
+              <i class="fa fa-file-text-o fa-lg" aria-hidden="true"></i>&nbsp;
+              <a data-toggle="collapse" data-target="#faq-article2">
+                How much time do I have to answer?
+              </a>
+            </div>
+            <div
+              id="faq-article2"
+              class="col-xs-12 col-sm-12 col-md-12 col-lg-12 collapse bg-estimation profil-content"
+            >
+              <p>
+                We ask our host to answer you under 24 hours but past this, your reservation will be
+                cancelled.
+              </p>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-20">
+              <i class="fa fa-file-text-o fa-lg" aria-hidden="true"></i>&nbsp;
+              <a data-toggle="collapse" data-target="#faq-article3">
+                How much time will it take for the host to confirm my reservation?
+              </a>
+            </div>
+            <div
+              id="faq-article3"
+              class="col-xs-12 col-sm-12 col-md-12 col-lg-12 collapse bg-estimation profil-content"
+            >
+              <p>
+                We encourage the communication between hosts and guests. You can expect to have a
+                confirmation in the 24 hours following your reservation.<br /><br />
+                If you do not receive an answer, the reservation will be cancelled.
+              </p>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-20">
+              <i class="fa fa-file-text-o fa-lg" aria-hidden="true"></i>&nbsp;
+              <a data-toggle="collapse" data-target="#faq-article4">
+                How can I get more information on my host?
+              </a>
+            </div>
+            <div
+              id="faq-article4"
+              class="col-xs-12 col-sm-12 col-md-12 col-lg-12 collapse bg-estimation profil-content"
+            >
+              <p>
+                There is plenty of information available on your host.During the process of
+                inscription of a host, they have to fill up their hobbies and why they want to
+                receive people over…<br /><br />
+                If you wish to have more information, just contact your host via the private message
+                system embedded on our website.<br /><br />
+                Also you will be able to see the pictures of your host on his or her profile, and
+                the pictures of his or her home.<br /><br />
+                Do not forget, you eat with your host, therefore the meals will be prepared with
+                love and carefulness like if you were family.<br /><br />
+                If you find any trouble with a host, we will refund you and delete the profile of
+                your host of our website.
+              </p>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-20">
+              <i class="fa fa-file-text-o fa-lg" aria-hidden="true"></i>&nbsp;
+              <a data-toggle="collapse" data-target="#faq-article5">
+                When will I receive the additional information concerning my meal and the exact
+                place?
+              </a>
+            </div>
+            <div
+              id="faq-article5"
+              class="col-xs-12 col-sm-12 col-md-12 col-lg-12 collapse bg-estimation profil-content"
+            >
+              <p>
+                At Homemeal we do things simply and efficiently. At the moment the host confirms the
+                reservation, you will receive automatically, all the details you will need.<br /><br />
+                If you have made a request for a reservation, you should receive an answer in the 48
+                hours following it.<br /><br />Don’t forget that you cannot exchange your personal
+                information in the private messages.
+              </p>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-20">
+              <i class="fa fa-file-text-o fa-lg" aria-hidden="true"></i>&nbsp;
+              <a data-toggle="collapse" data-target="#faq-article6">
+                What happens if I have to cancel my reservation?</a
+              >
+            </div>
+            <div
+              id="faq-article6"
+              class="col-xs-12 col-sm-12 col-md-12 col-lg-12 collapse bg-estimation profil-content"
+            >
+              <p>
+                We understand that sometimes things come up and you have to cancel your reservation
+                on Homemeal.<br /><br />
+                To facilitate that process we have created rules concerning that matter:<br /><br />
+                You cannot be refunded when you cancel a reservation<br /><br />
+                If you wish to cancel your reservation, please send us an email at
+                <a>contact@homemeal.com</a>
+              </p>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-20">
+              <i class="fa fa-file-text-o fa-lg" aria-hidden="true"></i>&nbsp;
+              <a data-toggle="collapse" data-target="#faq-article7">
+                Will I be refunded if the host cancels my meal?</a
+              >
+            </div>
+            <div
+              id="faq-article7"
+              class="col-xs-12 col-sm-12 col-md-12 col-lg-12 collapse bg-estimation profil-content"
+            >
+              <p>
+                Yes you will. We will either reimburse you, or if you wish, do our best to find you
+                another table.
+              </p>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-20">
+              <i class="fa fa-file-text-o fa-lg" aria-hidden="true"></i>&nbsp;
+              <a data-toggle="collapse" data-target="#faq-article8">
+                Does Homemeal takes fees out of my meal?
+              </a>
+            </div>
+            <div
+              id="faq-article8"
+              class="col-xs-12 col-sm-12 col-md-12 col-lg-12 collapse bg-estimation profil-content"
+            >
+              <p>
+                Homemeal adds a commission fee of 15% which adds up to the original price of the
+                meal, meaning that the guest only will pay for those fees.
+              </p>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-20 bot-20">
+              <i class="fa fa-file-text-o fa-lg" aria-hidden="true"></i>&nbsp;
+              <a data-toggle="collapse" data-target="#faq-article9"> Any other question? </a>
+            </div>
+            <div
+              id="faq-article9"
+              class="col-xs-12 col-sm-12 col-md-12 col-lg-12 collapse bg-estimation profil-content"
+            >
+              <p>
+                If you have any other question or comment, please send us a mail on the
+                <a href="./contact_us.html" class="btn btn-xs btn-danger"
+                  >contact form</a
+                >
+                or write us an email at contact@homemeal.com. We will answer you on a short notice.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+    </div>
+
+    <div class="container-fluid hmv2-footer">
+      <div class="container p0">
+        <div class="col-xs-12 col-sm-12 col-md-12 home-block t40xs">
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Chef-Contact</b></p>
+            <ul class="list-unstyled">
+              <li><a href="./aboutus.html" title="About">About</a></li>
+              <li><a href="./terms.html" title="Policies">Policies</a></li>
+              <li><a href="./privacy.html" title="Privacy">Privacy</a></li>
+              <li><a href="./rules.html">Contests</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Découvrir</b></p>
+            <ul class="list-unstyled">
+              <li>
+                <a href="./confiance.html" title="Trust and Safety">Trust and Safety</a>
+              </li>
+              <li><a href="./press.html" title="Press">Press</a></li>
+              <li><a href="./faq.html" title="F.A.Q">F.A.Q</a></li>
+              <li>
+                <a href="./contact_us.html" title="Contact us">Contact us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Accueillir</b></p>
+            <ul class="list-unstyled">
+              <li>
+                <a href="./howitworks.html" title="How does it work?">How does it work?</a>
+              </li>
+              <li><a href="./becomeahost.html">Become a host</a></li>
+              <li><a href="./hospitality.html">Hospitality</a></li>
+              <li><a href="./meal_restriction.html">Specific diets</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 fixpad7 b20">
+            <p><b>Rejoignez-nous</b></p>
+            <ul class="list-inline">
+              <li>
+                <a href="https://www.facebook.com/HomeMeal-153960538296278/" target="_blank"
+                  ><i class="fa fa-facebook fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://twitter.com/HomeMealCompany" target="_blank"
+                  ><i class="fa fa-twitter fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://in.pinterest.com/homemeal/" target="_blank"
+                  ><i class="fa fa-pinterest-p fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/homemeal_official/" target="_blank"
+                  ><i class="fa fa-instagram fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UCOc1S6b_QlHV9FA4T1Vj63A/" target="_blank"
+                  ><i class="fa fa-youtube-play fa-lg" aria-hidden="true"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 home-block top-border pt20 b60">
+          <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 p0">
+            <p class="t5">
+              <img src="/assets/imgs/sigle-hm.png" class="footer-ico" alt="" />© chef-contact.com
+            </p>
+          </div>
+
+          <div class="col-xs-4 col-sm-6 col-md-6 col-lg-6 dropup p0">
+            <button
+              class="btn btn-default dropdown-toggle pull-right"
+              type="button"
+              id="lang_list"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="true"
+            >
+              Choose your language
+              <span class="caret"></span>
+            </button>
+
+            <ul class="dropdown-menu dropdown-footer pull-right" aria-labelledby="dropdownMenu1">
+              <li aria-checked="true" class="active" role="menuitem">
+                <a href="./index.html">English</a>
+              </li>
+              <li aria-checked="false" role="menuitem">
+                <a href="https://www.homemeal.com/fr/">Français</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="/assets/js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="/assets/jquery-ui-1.12.0/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/assets/jquery-ui-1.12.0/i18n/datepicker-fr.js"></script>
+    <script type="text/javascript" src="/assets/js/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/js/highlight.pack.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.sticky-kit.min.js"></script>
+
+    <script type="text/javascript" src="/assets/js/material.min.js"></script>
+
+    <script
+      type="text/javascript"
+      src="/assets/js/bootstrap-material-datetimepicker-gh-pages/js/bootstrap-material-datetimepicker.js "
+    ></script>
+
+    <script src="/bundles/fosjsrouting/js/router.js"></script>
+    <script src="/js/routing?callback=fos.Router.setData"></script>
+
+    <script type="text/javascript" src="/assets/js/homemeal.js"></script>
+    <script type="text/javascript" src="/assets/js/star-rating.js"></script>
+  </body>
+</html>
